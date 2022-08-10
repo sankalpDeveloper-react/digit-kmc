@@ -11,7 +11,7 @@ import { onNotificationClick } from "egov-ui-kit/utils/commons";
 import "./index.css";
 import { connect } from "react-redux";
 import get from "lodash/get";
-
+import '../../../../../kmcAssets/css/admin.css'
 
 const styles = {
   titleStyle: { fontSize: "20px", fontWeight: 500 },
@@ -56,26 +56,13 @@ const EgovAppBar = ({
         // className={isHomeScreen && role === "citizen" ? "home-screen-appbar" : className || "header-with-drawer"}
         className={className || "header-with-drawer"}
         title={
-          <div className="citizen-header-logo-label">
-            <div className="citizen-header-logo">
-              <img src={ulbLogo ? ulbLogo : pbLogo} onError={(event) => event.target.setAttribute("src", pbLogo)} />
-            </div>
-            <Label containerStyle={{ marginLeft: "0px" }} className="screenHeaderLabelStyle appbar-title-label" label={title} />
-            {titleAddon && (
-              <Label
-                containerStyle={{ display: "inline-block", marginLeft: 5 }}
-                className="screenHeaderLabelStyle appbar-title-label"
-                label={titleAddon}
-              />
-            )}
-            {isUserSetting && <div className="rainmaker-displayInline">
-              <Label
-                containerStyle={{ marginLeft: "10px" }}
-                className="screenHeaderLabelStyle appbar-municipal-label"
-                label={ulbName && `TENANT_TENANTS_${ulbName.toUpperCase().replace(/[.]/g, "_")}`}
-              />
-              <Label containerStyle={{ marginLeft: "4px" }} className="screenHeaderLabelStyle appbar-municipal-label" label={defaultTitle} />
-            </div>}
+          <div className="search-wrapper" style={{ height : '100%'}}>
+              <div className="input-group" style={{ marginTop : '12px'}}>
+                <input type="text" className="form-control input-text" placeholder="Search products...." />
+                <div className="input-group-append" style={{ marginTop : '-12px'}}>
+                  <button className="btn btn-outline-warning btn-lg" type="button"><i className="bi bi-search"></i></button>
+                </div>
+              </div>
           </div>
         }
         titleStyle={styles.titleStyle}
@@ -105,9 +92,9 @@ const EgovAppBar = ({
           </div>
         )}
 
-        <div className="appbar-right-logo">
+        {/* <div className="appbar-right-logo">
           <img src={logoImage?logoImage:digitLogo} />
-        </div>
+        </div> */}
         <div className="icon-button">
           {refreshButton && (
             <IconButton style={iconButtonStyle} onClick={(e) => location.reload()}>
@@ -155,7 +142,7 @@ const onSearchClick = (history) => {
 const mapStateToProps = ({ common }) => {
   const { stateInfoById } = common;
   let logoImage = get(stateInfoById, "0.logoUrl");
-  return {  logoImage };
+  return { logoImage };
 };
 
 export default connect(

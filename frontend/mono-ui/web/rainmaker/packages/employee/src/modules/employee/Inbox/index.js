@@ -1,7 +1,7 @@
 // import JkInbox from "@jagankumar-egov/react-tour/components/Inbox";
 import Tooltip from '@material-ui/core/Tooltip';
 import commonConfig from "config/common.js";
-import JkInbox from "egov-inbox/components/Inbox";
+// import JkInbox from "egov-inbox/components/Inbox";
 import LoadingIndicator from "egov-ui-framework/ui-molecules/LoadingIndicator";
 import MenuButton from "egov-ui-framework/ui-molecules/MenuButton";
 import { setRoute } from "egov-ui-framework/ui-redux/app/actions";
@@ -152,7 +152,7 @@ class Inbox extends Component {
         <div className={"inbox-service-list"}>
           <ServiceList history={history} />
         </div>
-        {hasWorkflow && inboxLoading && <div>
+        {/* {hasWorkflow && inboxLoading && <div>
           <div className="jk-spinner-wrapper">
             <div className="jk-inbox-loader"></div>
           </div>
@@ -164,9 +164,9 @@ class Inbox extends Component {
           <div className="jk-spinner-wrapper">
             <Label label={errorMessage} />
           </div>
-        </div>}
+        </div>} */}
 
-        {hasWorkflow && <JkInbox user={{ ...user, permanentCity: commonConfig.tenantId }}
+        {/* {hasWorkflow && <JkInbox user={{ ...user, permanentCity: commonConfig.tenantId }}
           historyClick={this.onHistoryClick}
           t={(key) => {
             return getLocaleLabels("", key, localizationLabels);
@@ -179,10 +179,10 @@ class Inbox extends Component {
           </Tooltip>}
         >
 
-        </JkInbox>}
+        </JkInbox>} */}
         {/* {hasWorkflow && !inboxLoading && loaded && <TableData onPopupOpen={this.onPopupOpen} workflowData={inbox} />} */}
-        <FilterDialog popupOpen={this.state.filterPopupOpen} popupClose={this.handleClose} />
-        <TaskDialog open={this.state.dialogOpen} onClose={this.onDialogClose} history={ProcessInstances} />
+        {/* <FilterDialog popupOpen={this.state.filterPopupOpen} popupClose={this.handleClose} />
+        <TaskDialog open={this.state.dialogOpen} onClose={this.onDialogClose} history={ProcessInstances} /> */}
       </div>
     );
   }

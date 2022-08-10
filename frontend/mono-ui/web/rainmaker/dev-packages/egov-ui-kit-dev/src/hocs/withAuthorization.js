@@ -160,25 +160,7 @@ const withAuthorization = (options = {}) => (Component) => {
       let screencls = menuDrawerOpen ? "with-full-menu" : "with-icon-menu";
       return (
         <div className="rainmaker-header-cont" style={{ position: "relative" }}>
-          {!hideHeader && authenticated ? (
-            <Header
-              title={title}
-              titleAddon={role !== hideFor && titleAddon && titleAddon}
-              //titleObject={role !== hideFor && titleObject && titleObject}
-              hasLocalisation={hasLocalisation}
-              userInfo={userInfo}
-              role={role}
-              options={options}
-              history={history}
-              refreshButton={refreshButton}
-              sortButton={sortButton}
-              searchButton={searchButton}
-              helpButton={helpButton}
-              notificationButton={notificationButton}
-              //className={isHomeScreen&&process.env.REACT_APP_NAME==="Citizen" ? "rainmaker-header-home-small-screen" : "rainmaker-header"}
-              className={"rainmaker-header"}
-            />
-          ) : null}
+
           <div className=" col-xs-12" style={{ padding: 0 }}>
             {!hideActionMenu && authenticated && (
               <div>
@@ -193,11 +175,30 @@ const withAuthorization = (options = {}) => (Component) => {
                     />
                   </div>
                 </div>
-                <div className="col-xs-2  show-action-menu" /> {/*Dummy div for proper alignment - fixed positioning drawbacks*/}
+                <div className="col-xs-2 show-action-menu" /> {/*Dummy div for proper alignment - fixed positioning drawbacks*/}
               </div>
             )}
 
             <div className={`col-xs-12 col-sm-10 ${screencls}`} style={{ padding: 0 }}>
+              {!hideHeader && authenticated ? (
+                <Header
+                  title={title}
+                  titleAddon={role !== hideFor && titleAddon && titleAddon}
+                  //titleObject={role !== hideFor && titleObject && titleObject}
+                  hasLocalisation={hasLocalisation}
+                  userInfo={userInfo}
+                  role={role}
+                  options={options}
+                  history={history}
+                  refreshButton={refreshButton}
+                  sortButton={sortButton}
+                  searchButton={searchButton}
+                  helpButton={helpButton}
+                  notificationButton={notificationButton}
+                  //className={isHomeScreen&&process.env.REACT_APP_NAME==="Citizen" ? "rainmaker-header-home-small-screen" : "rainmaker-header"}
+                  className={"rainmaker-header"}
+                />
+              ) : null}
               {authenticated ? (
                 <div>
                   {!hideTitle && role !== hideFor && (

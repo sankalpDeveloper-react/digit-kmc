@@ -12,6 +12,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./index.css";
+import logo from '../../../../kmcAssets/img/logo-login.png'
 
 const styles = {
   inputStyle: {
@@ -318,7 +319,7 @@ class ActionMenuComp extends Component {
             );
           } else {
             if (item.navigationURL && item.navigationURL !== "newTab") {
-              let url=item.navigationURL.startsWith('/')?item.navigationURL:`/${item.navigationURL}`;
+              let url = item.navigationURL.startsWith('/') ? item.navigationURL : `/${item.navigationURL}`;
               return (
                 <Link
                   style={{ textDecoration: "none" }}
@@ -415,7 +416,7 @@ class ActionMenuComp extends Component {
             }
             if (item.path && item.url && item.displayName.toLowerCase().indexOf(searchText.toLowerCase()) > -1) {
               if (item.navigationURL) {
-                let url=item.navigationURL.startsWith('/')?item.navigationURL:`/${item.navigationURL}`;
+                let url = item.navigationURL.startsWith('/') ? item.navigationURL : `/${item.navigationURL}`;
                 return (
                   <Link
                     style={{ textDecoration: "none" }}
@@ -468,7 +469,7 @@ class ActionMenuComp extends Component {
     return actionList ? (
       <div ref={this.setWrapperRef}>
         <div className="whiteColor" />
-        <div className="menu-item-title">
+        {/* <div className="menu-item-title">
           <Label
             className="menuStyle"
             label={
@@ -477,7 +478,7 @@ class ActionMenuComp extends Component {
                 : ""
             }
           />
-        </div>
+        </div> */}
         <Menu
           disableAutoFocus={true}
           desktop={true}
@@ -486,7 +487,14 @@ class ActionMenuComp extends Component {
           className="actionMenuMenu"
           menuItemStyle={{ paddingLeft: "0", width: "100%" }}
         >
-          {!path && (
+          <div className="sidebar-brand">
+            <h2>
+              <a href="" className="logo align-items-center scrollto float-start">
+                <img  style= {{width: '100%' , marginBottom : '15px'}} src={logo} alt=""/>
+              </a>
+            </h2>
+          </div>
+          {/* {!path && (
             <div
               className="menu-search-container"
               onClick={() => {
@@ -506,7 +514,7 @@ class ActionMenuComp extends Component {
                 }}
               />
             </div>
-          )}
+          )} */}
           {(path || searchText) && (
             <div
               className="pull-left whiteColor pointerCursor"

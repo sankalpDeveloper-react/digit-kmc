@@ -96,13 +96,13 @@ class App extends Component {
 
     return (
       <div >
-      <div style={{minHeight:'calc(100vh - 3em)'}}>
+      <div style={{minHeight:'calc(100vh)'}}>
         <Router routes={routes} hasLocalisation={hasLocalisation} defaultUrl={defaultUrl} />
        </div>
         {toast && toast.open && !isEmpty(toast.message) && <Toast open={toast.open} message={toast.message} variant={toast.variant} />}
         {loading && <LoadingIndicator />}
         <CommonShareContainer componentId="rainmaker-common-share" />
-
+{/* 
         {!loginScreens && isFixedFooter&& <div className={"jk-footer"}>
           <img style={{ height: '1.3em' }} className={"jk-footer-image-cursor"} alt={"Powered by DIGIT"} src={`${sourceUrl}/digit-footer.png`} onError={"this.src='./../digit-footer.png'"} onClick={() => {
             window.open('https://www.digit.org/', '_blank').focus();
@@ -121,7 +121,7 @@ class App extends Component {
               window.open('https://www.digit.org/', '_blank').focus();
             }}></img>
           </div>
-        </div>}
+        </div>} */}
       </div>
     );
   }
